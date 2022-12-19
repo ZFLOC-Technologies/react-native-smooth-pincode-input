@@ -1,6 +1,6 @@
 # React Native Smooth Pincode Input
 
-A cross-platform, smooth, lightweight, customizable PIN code input component for React Native.
+A cross-platform, smooth, lightweight, customizable PIN code input component for React Native (forked from xamous/react-native-smooth-pincode-input - not maintained).
 
 Most PIN code inputs components implemented by combining several TextInputs. They works, however, not good enough. When user types fast, or system sluggish, characters may lost when component switching focus between TextInputs. User need to type over and over again to get a correct input, gave a frustrated user experience.
 
@@ -8,7 +8,10 @@ Most PIN code inputs components implemented by combining several TextInputs. The
 
 **React Native Smooth Pincode Input** is also highly customizable. By exposing cells and text stylesheets, it can be fully customized to fit in your app design. Password mode also supported with customizable mask characters as well as placeholders.
 
-- Checkout the [example/](https://github.com/xamous/react-native-smooth-pincode-input/tree/master/example) for demo app.
+- Checkout the [example/](https://github.com/zfloc-technologies/rn-smooth-pincode-input/tree/master/example) for demo app.
+
+## Fixed Issue
+1. Usage of deprecated prop types - (ViewPropTypes, Text.propTypes, TextInput.propTypes)
 
 ## Features
 
@@ -23,10 +26,10 @@ Most PIN code inputs components implemented by combining several TextInputs. The
 
 ```sh
 # yarn
-yarn add react-native-smooth-pincode-input
+yarn add rn-smooth-pincode-input
 
 # npm
-npm i react-native-smooth-pincode-input
+npm i rn-smooth-pincode-input
 ```
 
 ## Examples
@@ -41,18 +44,21 @@ npm i react-native-smooth-pincode-input
   onTextChange={code => this.setState({ code })}
   onFulfill={this._checkCode}
   onBackspace={this._focusePrevInput}
-  />
+/>
 ```
 
 ### Password with custom mask
 <img src="./demo/password.gif">
 
 ```js
-<SmoothPinCodeInput password mask="﹡"
+<SmoothPinCodeInput
+  password 
+  mask="﹡"
   cellSize={36}
   codeLength={8}
   value={password}
-  onTextChange={password => this.setState({ password })}/>
+  onTextChange={password => this.setState({ password })}
+/>
 ```
 
 ### Underline style
@@ -69,7 +75,7 @@ npm i react-native-smooth-pincode-input
   }}
   value={code}
   onTextChange={code => this.setState({ code })}
-  />
+/>
 ```
 
 ### Customized style
@@ -97,7 +103,7 @@ npm i react-native-smooth-pincode-input
   }}
   value={code}
   onTextChange={code => this.setState({ code })}
-  />
+/>
 ```
 
 ### Custom placeholder and mask using a component
@@ -105,19 +111,23 @@ npm i react-native-smooth-pincode-input
 
 ```js
 <SmoothPinCodeInput
-  placeholder={<View style={{
-    width: 10,
-    height: 10,
-    borderRadius: 25,
-    opacity: 0.3,
-    backgroundColor: 'blue',
-  }}></View>}
-  mask={<View style={{
-    width: 10,
-    height: 10,
-    borderRadius: 25,
-    backgroundColor: 'blue',
-  }}></View>}
+  placeholder={
+    <View style={{
+        width: 10,
+        height: 10,
+        borderRadius: 25,
+        opacity: 0.3,
+        backgroundColor: 'blue',
+    }}/>
+  }
+  mask={
+    <View style={{
+      width: 10,
+      height: 10,
+      borderRadius: 25,
+      backgroundColor: 'blue',
+    }}/>
+  }
   maskDelay={1000}
   password={true}
   cellStyle={null}

@@ -30,17 +30,19 @@ export default class App extends React.Component {
             onTextChange={code => this.setState({ code })}
             onFulfill={this._checkCode}
             onBackspace={() => console.log('No more back.')}
-            />
+          />
         </View>
 
         {/* password */}
         <View style={styles.section}>
           <Text style={styles.title}>Password</Text>
-          <SmoothPinCodeInput password mask="﹡"
+          <SmoothPinCodeInput
+            password
+            mask="﹡"
             cellSize={36}
             codeLength={8}
             value={password}
-            onTextChange={password => this.setState({ password })}/>
+            onTextChange={password => this.setState({ password })} />
         </View>
 
         {/* underline */}
@@ -56,7 +58,7 @@ export default class App extends React.Component {
             }}
             value={code}
             onTextChange={code => this.setState({ code })}
-            />
+          />
         </View>
 
         {/* customized */}
@@ -83,26 +85,30 @@ export default class App extends React.Component {
             }}
             value={code}
             onTextChange={code => this.setState({ code })}
-            />
+          />
         </View>
 
         {/* Custom placeholder & mask */}
         <View style={styles.section}>
           <Text style={styles.title}>Custom Placeholder</Text>
           <SmoothPinCodeInput
-            placeholder={<View style={{
-              width: 10,
-              height: 10,
-              borderRadius: 25,
-              opacity: 0.3,
-              backgroundColor: 'blue',
-            }}></View>}
-            mask={<View style={{
-              width: 10,
-              height: 10,
-              borderRadius: 25,
-              backgroundColor: 'blue',
-            }}></View>}
+            placeholder={
+              <View style={{
+                width: 10,
+                height: 10,
+                borderRadius: 25,
+                opacity: 0.3,
+                backgroundColor: 'blue',
+              }} />
+            }
+            mask={
+              <View style={{
+                width: 10,
+                height: 10,
+                borderRadius: 25,
+                backgroundColor: 'blue',
+              }} />
+            }
             maskDelay={1000}
             password={true}
             cellStyle={null}

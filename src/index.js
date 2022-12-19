@@ -6,8 +6,8 @@ import {
   TextInput,
   StyleSheet,
   I18nManager,
-  ViewPropTypes,
 } from 'react-native';
+import { TextPropTypes, ViewPropTypes, TextInputPropTypes } from 'deprecated-react-native-prop-types';
 import * as Animatable from 'react-native-animatable';
 
 const styles = StyleSheet.create({
@@ -45,7 +45,7 @@ class SmoothPinCodeInput extends Component {
     return this.ref.current[animation](duration);
   };
 
-  shake = () => this.animate({animation: "shake"});
+  shake = () => this.animate({ animation: "shake" });
 
   focus = () => {
     return this.inputRef.current.focus();
@@ -81,8 +81,8 @@ class SmoothPinCodeInput extends Component {
     if (maskDelay) { // mask password after delay
       clearTimeout(this.maskTimeout);
       this.maskTimeout = setTimeout(() => {
-          this.setState({ maskDelay: false });
-        },
+        this.setState({ maskDelay: false });
+      },
         this.props.maskDelay
       );
     }
@@ -150,7 +150,7 @@ class SmoothPinCodeInput extends Component {
         ]}>
         <View style={{
           position: 'absolute', margin: 0, height: '100%',
-          flexDirection: I18nManager.isRTL ? 'row-reverse': 'row',
+          flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
           alignItems: 'center',
         }}>
           {
@@ -167,7 +167,7 @@ class SmoothPinCodeInput extends Component {
               if (filled || placeholder !== null) {
                 if (showMask && isMaskText) {
                   cellText = mask;
-                } else if(!filled && isPlaceholderText) {
+                } else if (!filled && isPlaceholderText) {
                   cellText = placeholder;
                 } else if (pinCodeChar) {
                   cellText = pinCodeChar;
@@ -292,8 +292,8 @@ SmoothPinCodeInput.propTypes = {
   cellStyleFocused: ViewPropTypes.style,
   cellStyleFilled: ViewPropTypes.style,
 
-  textStyle: Text.propTypes.style,
-  textStyleFocused: Text.propTypes.style,
+  textStyle: TextPropTypes.style,
+  textStyleFocused: TextPropTypes.style,
 
   animated: PropTypes.bool,
   animationFocused: PropTypes.oneOfType([
@@ -310,7 +310,7 @@ SmoothPinCodeInput.propTypes = {
   onBlur: PropTypes.func,
   keyboardType: PropTypes.string,
   editable: PropTypes.bool,
-  inputProps: PropTypes.exact(TextInput.propTypes),
+  inputProps: PropTypes.exact(TextInputPropTypes),
 };
 
 export default SmoothPinCodeInput;
