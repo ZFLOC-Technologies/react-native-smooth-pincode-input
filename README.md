@@ -8,7 +8,7 @@ Most PIN code inputs components implemented by combining several TextInputs. The
 
 **React Native Smooth Pincode Input** is also highly customizable. By exposing cells and text stylesheets, it can be fully customized to fit in your app design. Password mode also supported with customizable mask characters as well as placeholders.
 
-- Checkout the [example/](https://github.com/zfloc-technologies/rn-smooth-pincode-input/tree/master/example) for demo app.
+- Checkout the [example/](https://github.com/zfloc-technologies/react-native-smooth-pincode-input/tree/master/example) for demo app.
 
 ## Fixed Issue
 1. Usage of deprecated prop types - (ViewPropTypes, Text.propTypes, TextInput.propTypes)
@@ -26,10 +26,10 @@ Most PIN code inputs components implemented by combining several TextInputs. The
 
 ```sh
 # yarn
-yarn add rn-smooth-pincode-input
+yarn add @zfloc/react-native-smooth-pincode-input
 
 # npm
-npm i rn-smooth-pincode-input
+npm i @zfloc/react-native-smooth-pincode-input
 ```
 
 ## Examples
